@@ -9,7 +9,7 @@ let listaNombres = [];
 function agregarAmigo(){
     let inputName = document.getElementById('amigo').value;
     let nombre = inputName.trim();
-
+    // Verificaciones 
     if(nombre === ""){
         alert("Error, por favor ingrese un nombre");
         return;
@@ -22,15 +22,23 @@ function agregarAmigo(){
     listaNombres.push(nombre);
     // Limpiar campos de input
     limpiarCaja();
-    // Actualizar lista de nombres.
-    console.log(listaNombres);
+    // Actualizar lista de nombres en el html.   
+    actualizarListaAmigo();
     }
 
 
 
 // Implementar una funcion para actualizar la lista de amigos
     function actualizarListaAmigo(){
-        
+        const listaAmigos = document.getElementById('listaAmigos');
+        //limpiar el campo actual
+        listaAmigos.innerHTML = "";
+        // Foreach Recorre el array ejecutando la funcion por cada elemento
+        listaNombres.forEach(nombre => {
+            const li = document.createElement('li');
+            li.textContent = nombre;
+            listaAmigos.appendChild(li);
+        });
     }
 // Implementar una funcion para sortear los amigos
 
