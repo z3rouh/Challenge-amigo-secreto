@@ -42,15 +42,18 @@ function agregarAmigo(){
     }
 // Implementar una funcion para sortear los amigos
     function sortearAmigo(){
+        // Validador que tenga amigos disponibles o registrado para el sorteo
         if(listaNombres.length < 2){
             alert("Debes añadir al menos 2 amigos para realizar el sorteo.");
             return;
         }
-
+        // Generador del indice aletorio para la lista
         const indiceAletorio = Math.floor(Math.random() * listaNombres.length);
-
+        
+        // Obtener el nombre sorteado 
         const amigoSorteado = listaNombres[indiceAletorio]; 
 
+        // Mostrar el resultado en el HTML
         const resultado = document.getElementById('resultado');
         resultado.innerHTML = `El ganador es: <strong>${amigoSorteado}</strong> `;
 
