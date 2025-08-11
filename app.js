@@ -33,15 +33,28 @@ function agregarAmigo(){
         const listaAmigos = document.getElementById('listaAmigos');
         //limpiar el campo actual
         listaAmigos.innerHTML = "";
-        // Foreach Recorre el array ejecutando la funcion por cada elemento
-        listaNombres.forEach(nombre => {
+        //Recorre el array ejecutando la funcion por cada elemento
+        for(let i = 0; i < listaNombres.length; i++){
             const li = document.createElement('li');
-            li.textContent = nombre;
+            li.textContent = listaNombres[i];
             listaAmigos.appendChild(li);
-        });
+        };
     }
 // Implementar una funcion para sortear los amigos
+    function sortearAmigo(){
+        if(listaNombres.length < 2){
+            alert("Debes añadir al menos 2 amigos para realizar el sorteo.");
+            return;
+        }
 
+        const indiceAletorio = Math.floor(Math.random() * listaNombres.length);
+
+        const amigoSorteado = listaNombres[indiceAletorio]; 
+
+        const resultado = document.getElementById('resultado');
+        resultado.innerHTML = `El ganador es: <strong>${amigoSorteado}</strong> `;
+
+    }
 // function extras
 
 function limpiarCaja (){
